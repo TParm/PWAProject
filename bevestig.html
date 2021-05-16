@@ -47,118 +47,26 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    .cameraRoll {
-        width: 130px;
-        height: 130px;
-        background-size: cover;
-        background-position: center center;
-        overflow: hidden;
-        border-radius: 50%;
-    }
-
-    .fullscreen {
-        width: 100%;
-        height: 100%;
-    }
-
-    img {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    </style>
   </head>
 
   <body>
     <!--Nav bar header every page-->
-    <div>
-        <nav
-        class="navbar navbar-expand-lg navbar-light bg-light py-4"
-        
-      >
-        <a class="navbar-brand" href="/index.html">Mercedes Benz</a>
+
+
+           <form name="frm">
+        <input />
+        <br />
         <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          type="submit"
+          class="button button-dark"
+          id="btnShowNotification"
+          disabled
         >
-          <span class="navbar-toggler-icon"></span>
+          Send message
         </button>
-  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
-              <a class="nav-link" href="/index.html"
-                >Home </a
-              >
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="/shop.html">Shop</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/testrit.html">Wedstrijd</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+      </form>
+    <script type = "text/javascript" src="/scripts/app.js"></script>
 
-    <div class="jumbotron">
-        <h1 class="display-4">Uw bent er bijna!</h1>
-        <p class="lead">Maak een foto van uw rijbewijs om uw deelname te bevestigen.</p>
-        <section id="main" class="fullscreen">
-            <div>
-                <input type="file" accept="image/*" capture="camera" id="camera" style="display: none;">
-                <input type="button" value="Open Camera/Browse Photos" onclick="document.getElementById('camera').click();" />
-            </div>
-            <div>
-                <img id="frame">
-            </div>
-            <div>
-                <div id="cameraRoll"></div>
-            </div>
-        </section>
-        <script>
-        var camera = document.getElementById('camera');
-        var frame = document.getElementById('frame');
-    
-        var cameraRoll = $("#cameraRoll")
-    
-        camera.addEventListener('change', function(e) {
-            var file = e.target.files[0];
-            console.log('file=' + URL.createObjectURL(file));
-            // Do something with the image file.
-            frame.src = URL.createObjectURL(file);
-            addImageToView(file)
-        });
-    
-        function addImageToView(file) {
-            var photo = $('<div><div/>');
-            photo.css({ 'background-image': "url('" + URL.createObjectURL(file) + "')" });
-            photo.addClass('cameraRoll');
-            cameraRoll.prepend(photo);
-        }
-        </script>
-
-
-        <div class="col-md-12">
-            <button  class="btn btn-success btn-send"  id="btnGrantPermission" >Klik om toestemming te geven voor notification</button>
-            <button  class="btn btn-success btn-send"  id="btnShowNotification" >Verstuur bericht</button>
-        </div>
-    </div>
-     
-    <script src="scripts/app.js"></script>
   </body>
 
   <footer class="bg-light text-center text-dark">

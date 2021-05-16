@@ -60,6 +60,20 @@ const showCars = () => {
   container.innerHTML = output;
 };
 
+document.getElementById("name" && "name1" && "name2" && "name3" && "name4")?.addEventListener("keyup", function() {
+  var nameInput = document.getElementById('name').value;
+  var nameInput1 = document.getElementById('name1').value;
+  var nameInput2 = document.getElementById('name2').value;
+  var nameInput3 = document.getElementById('name3').value;
+  var nameInput4 = document.getElementById('name4').value;
+  if (nameInput != "" && nameInput1 != "" && nameInput2 != "" && nameInput3 != "" && nameInput4 != "") {
+      document.getElementById('btnShowNotification').removeAttribute("disabled");
+  } else {
+      document.getElementById('btnShowNotification').setAttribute("disabled", null);
+  }
+});
+
+
 document.addEventListener("DOMContentLoaded", showCars);
 
 window.addEventListener("load", function () {
@@ -80,7 +94,7 @@ window.addEventListener("load", function () {
   // Click events opvangen.
   document
     .querySelector("#btnGrantPermission")
-    .addEventListener("click", function () {
+    ?.addEventListener("click", function () {
       console.log("clicked");
 
       // Controleer of notifications mogelijk zijn met deze browser...
@@ -103,7 +117,7 @@ window.addEventListener("load", function () {
 
   document
     .querySelector("#btnShowNotification")
-    .addEventListener("click", function () {
+    ?.addEventListener("click", function () {
       if (Notification.permission === "granted") {
         navigator.serviceWorker.getRegistration().then((registration) => {
           // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification
@@ -119,66 +133,10 @@ window.addEventListener("load", function () {
               { action: "noGo", title: "Scroll verder op huidige website" },
             ],
           });
-
+            
           console.log("New notification was send.");
-        });
-      }
-    });
-
-
-    document
-    .querySelector("#btnShowNotificationWedstrijd")
-    .addEventListener("click", function () {
-      if (Notification.permission === "granted") {
-        navigator.serviceWorker.getRegistration().then((registration) => {
-          // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification
-          registration.showNotification("MB ewaa!", {
-            vibrate: [
-              300, 100, 100, 50, 100, 50, 100, 100, 150, 250, 100, 700, 200,
-              150, 200,
-            ],
-            body: "Uw deelname is bevestigd!",
-            icon: "/images/icons/brand.png",
-            actions: [
-              { action: "go", title: "Ga naar de officiële website.." },
-              { action: "noGo", title: "Scroll verder op huidige website" },
-            ],
-          });
-
-          console.log("New notification was send.");
+          window.location.href = "/index.html";
         });
       }
     });
 });
-
-function validate() {
-  if (document.myForm.Firstname.value == "") {
-    alert("Please provide your name!");
-    document.myForm.Firstname.focus();
-    return false;
-  }
-  // if (document.myForm.Lastname.value == "") {
-  //   alert("Please provide your Email!");
-  //   document.myForm.Lastname.focus();
-  //   return false;
-  // }
-  // if (document.myForm.Email.value == "") {
-  //     alert("Please provide your Email!");
-  //     document.myForm.Email.focus();
-  //     return false;
-  //   }
-  // if (
-  //   document.myForm.Zip.value == "" ||
-  //   isNaN(document.myForm.Zip.value) ||
-  //   document.myForm.Zip.value.length != 5
-  // ) {
-  //   alert("Please provide a zip in the format #####.");
-  //   document.myForm.Zip.focus();
-  //   return false;
-  // }
-  // if (document.myForm.Country.value == "-1") {
-  //   alert("Please provide your country!");
-  //   return false;
-  // }
-  return true;
-}
