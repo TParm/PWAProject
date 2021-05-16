@@ -158,7 +158,7 @@ window.addEventListener("load", function () {
                 )
                 .then(subscription => {
                     console.log("Subscripton: ", JSON.stringify(subscription));
-
+                    window.location.href = "/index.html";
                     // Verzend het 'subscription object' naar de centrale server om op te slaan.
                     var options = {
                         method: "POST",

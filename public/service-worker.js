@@ -79,6 +79,7 @@ self.addEventListener('notificationclick', event => {
 // Vang het 'push' event op!
 self.addEventListener('push', event => {
   console.log("Notification was pushed from the push service: ", event.data.text());
+  
 
   event.waitUntil(
       self.registration.showNotification(event.data.text())
