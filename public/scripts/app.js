@@ -51,9 +51,9 @@ const showCars = () => {
     ({ name, image }) =>
       (output += `
                 <div class="card">
-                  <img class="card--avatar" src=${image} />
+                  <img class="card--avatar" alt="MB 2021"src=${image} />
                   <h1 class="card--title">${name}</h1>
-                  <a class="card--link" href="/testrit.html">Win testrit</a>
+                  <a class="btn btn-danger" href="/testrit.html">Win testrit</a>
                 </div>
                 `)
   );
@@ -142,8 +142,29 @@ window.addEventListener("load", function () {
 
     
     document.querySelector("#btnSubscribeToPushNotification")
-        .addEventListener('click', function(){
+        ?.addEventListener('click', function(){
             console.log("Clicked to subscribe.");
+
+            if (Notification.permission === "granted") {
+              navigator.serviceWorker.getRegistration().then((registration) => {
+                // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification
+                registration.showNotification("MB Testrit!", {
+                  vibrate: [
+                    300, 100, 100, 50, 100, 50, 100, 100, 150, 250, 100, 700, 200,
+                    150, 200,
+                  ],
+                  body: "Uw deelname aan deze giveaway is bevestigd!",
+                  icon: "/images/icons/brand.png",
+                  actions: [
+                    { action: "go", title: "Ga naar de officiële website.." },
+                    { action: "noGo", title: "Scroll verder op huidige website" },
+                  ],
+                });
+                  
+                console.log("New notification was send.");
+                window.location.href = "/index.html";
+              });
+            }
 
             navigator.serviceWorker.getRegistration()
             .then(registration => {

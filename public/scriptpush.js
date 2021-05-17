@@ -13,7 +13,7 @@ window.addEventListener('load', function(){
                 method: "POST",
                 body: JSON.stringify(
                     {
-                        message: "De winnaar zal een mail ontvangen op 17/05!"
+                        message: "De winnaars zal een mail ontvangen op 25/05!"
                     }),
             
                 headers: myHeaders

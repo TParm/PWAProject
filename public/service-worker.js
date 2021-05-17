@@ -5,9 +5,9 @@ const assets = [
     "/shop.html",
     "/contact.html",
     "/css/reset.css",
-    "/css/style.css",
-    "/css/styleShop.css",
-    "/css/styleAbout.css",
+    // "/css/style.css",
+    // "/css/styleShop.css",
+    // "/css/styleAbout.css",
     "/scripts/app.js",
     "/images/MBA1.jpg",
     "/images/MBA2.jpg",
@@ -69,7 +69,6 @@ self.addEventListener('notificationclick', event => {
   if(event.action === "go")
   {
       console.log("Ga naar de officiele site");
-      // https://developer.mozilla.org/en-US/docs/Web/API/Clients/openWindow
       clients.openWindow("https://www.mercedes-benz.be/nl_BE/passengercars.html?group=all&subgroup=see-all&view=BODYTYPE");
   }
   else
